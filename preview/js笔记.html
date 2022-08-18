@@ -1,0 +1,186 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:js笔记</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h2 id="js-">js基础</h2>
+<h2 id="-">变量</h2>
+<ol>
+<li>变量就是一个用来存储数据的容器</li>
+<li>声明变量使用var关键字</li>
+<li>变量的声明<pre><code class="lang-js">var name = `右侧叫表达式`
+//var 是声明变量的关键字
+//name 是变量的名字
+//= 赋值运算符
+// 等号=右边叫表达式
+</code></pre>
+</li>
+<li>var提升变量，只是把变量提升到作用域的最顶层，变量的赋值不会提升，依然保留原始位置</li>
+</ol>
+<h2 id="-">内存分配</h2>
+<ol>
+<li>内存中的栈【有序存储】：存储基础数据类型的数据【字符串，数字，布尔值】</li>
+<li>内存中的堆【无序存储】：存储的是复杂/引用类型的数据【对象，数组】</li>
+</ol>
+<h2 id="-">变量命名规范</h2>
+<ol>
+<li>【重点】变量名不可以是js的关键字或保留字</li>
+<li>变量的名字不可以用数字开头，更不能是纯数字和其他非英文字母的字符，虽然可以用中文，做变量名字，但一般不这么写</li>
+<li>变量可以使用<code>$</code>、<code>_</code>、以及英文字母做变量名</li>
+<li>命名的时候应该遵循语义化规则：让变量有实际的含义，实在不行可以使用拼音【不推荐】</li>
+<li>对于多个单词拼接的变量名应该使用驼峰命名法：<ul>
+<li>大驼峰命名法：myname=&gt;MyName;每个单词的首字母大写</li>
+<li>小驼峰命名法：myname=&gt;myName;除了第一个单词，剩下的单词首字母大写</li>
+<li>变量的首字母应该对应着数据类型</li>
+<li>字符串：<code>var s_name</code></li>
+<li>数字：<code>var n_name</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="-">作用域</h2>
+<ul>
+<li>定义：程序生效的空间</li>
+<li>全局的作用域：script【脚本】<ul>
+<li>顶级对象：window、document</li>
+<li>window又叫BOM</li>
+<li>document又叫DOM</li>
+<li>BOM包含着DOM</li>
+</ul>
+</li>
+<li>局部的作用域：function【函数】、module【es6】<ul>
+<li>顶级对象：this</li>
+<li>内部声明的变量</li>
+<li>声明在局部作用域中的变量不可以在外部使用，但是如果不使用关键字声明变量，否则会背提升到全局作用域中</li>
+<li>函数天生有返回值，返回默认是undefined</li>
+</ul>
+</li>
+</ul>
+<h2 id="-">数据类型</h2>
+<h2 id="-">基本数据类型【内存的栈里面存储】</h2>
+<ul>
+<li>数字</li>
+<li>字符串</li>
+<li>布尔值</li>
+<li>空值 null</li>
+<li>未定义 undefined</li>
+<li><p>不是数字 nan</p>
+<h2 id="-">引用数据类型</h2>
+</li>
+<li>对象</li>
+<li>数组</li>
+<li>函数</li>
+<li><p>正则</p>
+<h2 id="-">基本数据类型和引用数据类型区别</h2>
+</li>
+<li>基本数据类型在赋值的时候是在栈里面开一个新的空间，多个变量使用同一个值，也是对值的深拷贝，每个值拥有独立的空间</li>
+<li>引用数据类型在赋值的时候是在堆里面开一个空间，把存储空间的标识码赋给了变量，多个变量赋值同为一个对象的时候，只是简单地复用了标识码的引用，俗称浅拷贝。</li>
+</ul>
+<h2 id="-">类型转换</h2>
+<ol>
+<li>字符串-&gt;数组</li>
+<li>字符串-&gt;数组</li>
+<li><p>所有的数据互相之间都可以转换</p>
+<h2 id="-">显示转换</h2>
+<p>很直观的从代码上可以看出来是在转换数据类型</p>
+<ol>
+<li>使用数据的构造函数：String()</li>
+<li>使用方法，比如转成字符串可以使用toString方法<h2 id="-">隐式转换</h2>
+</li>
+<li>if的表达式可以隐式转换</li>
+<li>+任何值和字符串，都会被转成字符串</li>
+<li>除了+，其他的减乘除都是尝试把数据转换成数字进行计算</li>
+<li>逻辑运算符也会隐式转换数据</li>
+</ol>
+</li>
+</ol>
+<h2 id="-">数据类型检测</h2>
+<ol>
+<li>typeof：对基本数据类型检测好用，对于引用数据类型全都是object</li>
+<li>instanceof：检测一个值是不是属于一个数据原型上的，对于引用速狙很精准，对于基本数据不精准</li>
+<li>constructor：可以检测基本数据类型和引用数据类型，但是对于控制类型，不能检测出来，因为空值类型没有构造函数</li>
+<li>Object.prototype.toString.call()：可以检测所有的数据类型</li>
+</ol>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
